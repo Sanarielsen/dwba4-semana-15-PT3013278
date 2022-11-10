@@ -57,7 +57,7 @@
         <br>  
         <table border='1'>
           <tr>
-              <th>Nome</th><th>E-mail</th><th>Telefone</th><th>Assunto</th><th>Mensagem</th><th>Opcao</th>
+              <th>Nome</th><th>E-mail</th><th>Telefone</th><th>Assunto</th><th>Mensagem</th><th>Opcao</th><th>Ação</th>
           </tr>
           {% for value in contatos %}                        
             <tr>
@@ -67,6 +67,11 @@
               <td>{{contatos[value]['assunto'] }}</td>
               <td>{{contatos[value]['mensagem'] }}</td>
               <td>{{contatos[value]['re'] }}</td>
+              <td>
+                <form method="POST" action="/deletarContato/{{value}}">
+                  <input type="submit" value="Eliminar Registro" name="deleteOne"/>
+                </form>
+              </td>
             </tr>  
           {% endfor %}                      
         </table>       
